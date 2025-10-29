@@ -10,5 +10,119 @@
   "autoSendChannelId": "",
   "youtube": {
     "apiKey": "YOUR_YOUTUBE_API_KEY"
+  },
+  "customization": {
+    "botName": "Nocní hráči Music bot",
+    "embedFooter": "Nocní hráči Music bot",
+    "color": 23877
+  },
+  "texts": {
+    "bot": {
+      "nickname": "bez jména",
+      "connected": "Bot je připojen do hlasového kanálu.",
+      "disconnected": "Bot je odpojen z hlasového kanálu.",
+      "notConnected": "Bot není připojen do žádného hlasového kanálu.",
+      "noPermission": "Nemám oprávnění připojit se do hlasového kanálu.",
+      "inAnotherChannel": "Jsem už v jiném hlasovém kanálu.",
+      "leaveDueToInactivity": "Nikdo není v kanálu – odpojuji se.",
+      "unknownError": "Došlo k neočekávané chybě."
+    },
+    "embed": {
+      "title": "🎵 Hudební přehrávač",
+      "nowPlaying": "🎶 Nyní hraje:",
+      "length": "⏱️ Délka",
+      "requestedBy": "👤 Požádal",
+      "status": "📊 Status",
+      "statusPlaying": "▶️ Přehrává",
+      "statusPaused": "⏸️ Pozastaveno",
+      "nothingPlaying": "Nic nehraje",
+      "queueLabel": "📋 Fronta:",
+      "queueEmpty": "Fronta je prázdná",
+      "playlistLabel": "🎵 Playlist",
+      "playlistCountSuffix": "písniček",
+      "queueMoreSuffix": "...a další",
+      "queueEmptyMessage": "Playlist je prázdný - přidejte písničky pomocí tlačítka níže"
+    },
+    "buttons": {
+      "addSong": "Přidat písničku",
+      "addNext": "Přidat další",
+      "pause": "Pauza",
+      "resume": "Pokračovat",
+      "connect": "Připojit",
+      "disconnect": "Odpojit",
+      "skip": "Přeskočit",
+      "clearPlaylist": "Vyprázdnit playlist",
+      "downloadSong": "Stáhnout písničku",
+      "loopOff": "Smyčka vypnuto",
+      "loopSong": "Smyčka písničky",
+      "loopPlaylist": "Smyčka playlistu"
+    },
+    "modals": {
+      "addSongTitle": "Přidat písničku",
+      "songUrlPlaceholder": "Zadejte YouTube URL nebo název...",
+      "addNextTitle": "Přidat další",
+      "addNextPlaceholder": "Zadejte YouTube URL nebo název...",
+      "songUrlLabel": "YouTube URL nebo název písničky",
+      "downloadTitle": "Stáhnout písničku",
+      "downloadUrlLabel": "YouTube URL",
+      "downloadUrlPlaceholder": "Zadejte YouTube URL..."
+    },
+    "messages": {
+      "configLoadErrorPrefix": "❌ Chyba při načítání config.json:",
+      "configLoadHint": "💡 Ujistěte se, že soubor config.json existuje a obsahuje platné JSON.",
+      "tokenMissing": "❌ Bot token není nastaven v config.json!",
+      "clientIdMissing": "❌ Client ID není nastaven v config.json!",
+      "voiceConnectErrorPrefix": "❌ Chyba při připojování:",
+      "voiceConnectError": "Chyba při připojování k voice kanálu.",
+      "voiceAloneCountdown": "🕐 Bot zůstal sám v kanálu, odpojí se za {minutes} minut",
+      "voiceAutoDisconnected": "🔌 Bot se odpojil - zůstal sám v kanálu po 30 minutách",
+      "onlyOneSong": "Prosím, zadejte pouze jednu písničku.",
+      "addedToQueue": "Přidáno do fronty.",
+      "addedNext": "Přidáno na další pozici.",
+      "paused": "Přehrávání pozastaveno.",
+      "resumed": "Přehrávání pokračuje.",
+      "skipped": "Přeskočeno.",
+      "cleared": "Playlist byl vyprázdněn.",
+      "downloadStarted": "Stahování písničky zahájeno.",
+      "downloadSuccess": "Písnička úspěšně stažena.",
+      "downloadError": "Nepodařilo se stáhnout písničku.",
+      "downloadFailed": "Stahování selhalo",
+      "downloadFileNotFound": "Stažený soubor nebyl nalezen",
+      "downloadFileTooLarge": "Soubor je příliš velký (max 25MB)",
+      "sendFileErrorPrefix": "Chyba při odesílání souboru:",
+      "ytdlpSpawnError": "Nepodařilo se spustit yt-dlp",
+      "mustBeInVoice": "Musíte být v hlasovém kanálu.",
+      "alreadyPlaying": "Už se přehrává.",
+      "notPlaying": "Nic nehraje.",
+      "invalidUrl": "Neplatné YouTube URL.",
+      "searching": "Vyhledávám...",
+      "noResults": "Nenalezeny žádné výsledky.",
+      "queueLimitReached": "Byl dosažen limit délky fronty.",
+      "noPermissionSendMessages": "Nemám oprávnění posílat zprávy v tomto kanálu.",
+      "noPermissionConnect": "Nemám oprávnění připojit se do hlasového kanálu.",
+      "noPermissionSpeak": "Nemám oprávnění mluvit v hlasovém kanálu.",
+      "unknownError": "Došlo k neočekávané chybě."
+    },
+    "leaderboard": {
+      "usersTitle": "🏆 Top 20 uživatelů - Přidané písničky",
+      "usersEmpty": "Zatím nikdo nepřidal žádnou písničku.",
+      "usersItemSuffix": "písniček",
+      "songsTitle": "🎵 Top 20 nejpřehrávanějších písniček",
+      "songsEmpty": "Zatím nebyla přehrána žádná písnička.",
+      "songsItemSuffix": "x"
+    },
+    "leaderboard": {
+      "usersTitle": "🏆 Top 20 uživatelů - Přidané písničky",
+      "usersEmpty": "Zatím nikdo nepřidal žádnou písničku.",
+      "usersItemSuffix": "písniček",
+      "songsTitle": "🎵 Top 20 nejpřehrávanějších písniček",
+      "songsEmpty": "Zatím nebyla přehrána žádná písnička.",
+      "songsItemSuffix": "x"
+    },
+    "fallbacks": {
+      "unknownDuration": "Neznámá",
+      "unknownUser": "Neznámý uživatel",
+      "unknownTitle": "Neznámý název"
+    }
   }
 }

@@ -1,11 +1,10 @@
 const fs = require('fs');
-const { Client, GatewayIntentBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle, SlashCommandBuilder } = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
 const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus } = require('@discordjs/voice');
 const { google } = require('googleapis');
 const YouTube = require('youtube-sr').default;
 const { spawn } = require('child_process');
-const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v10');
+// Commands are not used; REST and Routes imports removed
 
 // Databáze pro leaderboard
 let database = {};
@@ -849,26 +848,7 @@ class MusicPlayer {
 client.once('ready', async () => {
 console.log(`Bot ${client.user.tag} is ready!`);
 
-    // Registrace slash příkazu /music
-    try {
-        const commands = [
-            new SlashCommandBuilder()
-                .setName('music')
-.setDescription('Sends the music bot control panel to this channel')
-                .toJSON()
-        ];
-        if (config.allowedGuildId) {
-            const guild = await client.guilds.fetch(config.allowedGuildId);
-            await guild.commands.set(commands);
-console.log('✅ Slash command /music registered (guild).');
-        } else {
-            const rest = new REST({ version: '10' }).setToken(config.token);
-            await rest.put(Routes.applicationCommands(config.clientId), { body: commands });
-console.log('✅ Slash command /music registered (global).');
-        }
-    } catch (e) {
-console.error('❌ Slash command registration failed:', e.message);
-    }
+    // No command registration. Control panel is managed via auto-send and buttons.
 
     // Automatické připojení do hlasového kanálu (pokud je nastaveno v configu)
     const targetVoiceChannelId = config.autoJoinVoiceChannelId;
@@ -1051,35 +1031,7 @@ client.on('interactionCreate', async interaction => {
         return;
     }
     
-    // Slash příkaz /music pro vložení ovládacího embedu
-    if (interaction.isChatInputCommand() && interaction.commandName === 'music') {
-        try {
-            let musicPlayer = musicData.get(interaction.guildId);
-            if (!musicPlayer) {
-                musicPlayer = new MusicPlayer(interaction.guildId);
-                musicData.set(interaction.guildId, musicPlayer);
-            }
-            
-            const embed = musicPlayer.createControlEmbed();
-            const buttons = musicPlayer.createControlButtons();
-            const message = await interaction.channel.send({
-                embeds: [embed],
-                components: buttons
-            });
-            
-            // Uložit ID zprávy do config.json
-            config.lastEmbedMessageId = message.id;
-            fs.writeFileSync('./config.json', JSON.stringify(config, null, 2));
-            
-            await interaction.reply({ content: '✅ Control panel was sent to this channel.', ephemeral: true });
-        } catch (error) {
-            console.error('❌ Error sending control panel:', error);
-            try {
-await interaction.reply({ content: '❌ Failed to send control panel.', ephemeral: true });
-            } catch (_) {}
-        }
-        return;
-    }
+    // No chat input commands; interactions are handled via buttons only
     
     if (interaction.isButton()) {
         // Kontrola oprávnení
@@ -1325,8 +1277,7 @@ console.error('Failed to send error message to DM:', dmError);
     }
 });
 
-// Prefixový fallback: !music odešle ovládací panel do aktuálního kanálu
-// Textové prefixové příkazy byly odstraněny. Používejte slash příkaz /music a ovládací tlačítka.
+// No text or slash commands. Control via buttons only.
 
 client.on('voiceStateUpdate', (oldState, newState) => {
     // Omezit reakce jen na povolený server

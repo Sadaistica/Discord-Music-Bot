@@ -9,7 +9,7 @@ A modern Discord music bot with YouTube integration and an embed-based control p
 - Auto-disconnect when the channel is empty
 - Download songs to MP3 via DM (yt-dlp)
   
-Removed text command fallback; control only via `/music` and buttons
+No commands are used; control via embed buttons only
 
 ## Requirements
 - Node.js `>=22.12.0` (recommended)
@@ -18,36 +18,22 @@ Removed text command fallback; control only via `/music` and buttons
 - Discord bot token and Client ID
 
 ## Installation
-1) Clone the repository and go to the `Repo` folder.
-
-```bash
-npm install
-```
-
-2) Configure settings:
-- Run `setup.bat` in the `Repo` folder for interactive configuration, or manually create `config.json` from `config.json.example` and fill in values.
+1) Clone or copy this folder into your workspace.
+2) Install dependencies with your preferred Node.js workflow.
+3) Configure settings:
+- Use the provided `setup.bat` for an interactive setup or create `config.json` from `config.json.example` and fill in your values.
 - Required: `token`, `clientId`
-- Optional: `allowedGuildId`, `autoJoinVoiceChannelId`, `autoSendChannelId`, `youtube.apiKey`, `customization.*`
-
-3) Install FFmpeg:
-- Windows: download from the official site and add to PATH
-- Linux: `sudo apt install ffmpeg`
-- macOS: `brew install ffmpeg`
-
-4) Install yt-dlp:
-- Windows: `winget install yt-dlp` or download the binary from GitHub Releases and add to PATH
-- Linux/macOS: `pip install yt-dlp` or use your package manager
+- Optional: `allowedGuildId`, `autoJoinVoiceChannelId`, `autoSendChannelId`, `youtube.apiKey`, `customization.*`, `texts.*`
+4) Install FFmpeg and ensure it is available on your system PATH.
+5) Install yt-dlp and ensure it is available on your system PATH.
 
 ## Run
-```bash
-npm run start
-```
-On startup:
-- If `allowedGuildId` is set, `/music` is registered to that server.
-- If not set, `/music` is registered globally (propagation can take up to 1 hour).
+Start the bot with your standard Node.js run command. On startup:
+- If `autoSendChannelId` is set, the control panel message is sent/updated in that channel.
+- If `autoJoinVoiceChannelId` is set, the bot joins that voice channel.
 
 ## Invite the bot to a server
-- Create a URL with scopes: `bot` and `applications.commands`
+- Create a URL with scope: `bot`
 - Minimum permissions: `Connect`, `Speak`, `Read Messages`, `Send Messages`
 
 ## Configuration Overview
@@ -61,10 +47,11 @@ On startup:
 - `autoJoinVoiceChannelId` – optionally auto-join a voice channel
 - `autoSendChannelId` – optionally auto-insert the control panel
 - `youtube.apiKey` – optional; for metadata via YouTube Data API (otherwise a scraping library is used)
+- `texts.*` – localization of all user-facing strings (embed labels, buttons, modals, messages, leaderboard)
 
 ## Tips & Troubleshooting
 - If yt-dlp reports playback errors, ensure it’s up to date and available in PATH. Alternatively use `python -m yt_dlp` by installing via `pip`.
-- Global slash commands can take time to appear. For immediate availability, set `allowedGuildId` to register `/music` directly to your server.
+ 
 - On Windows, installing `sodium` may rely on Visual Studio Build Tools; alternatively `libsodium-wrappers` is sufficient.
 
 ## License
