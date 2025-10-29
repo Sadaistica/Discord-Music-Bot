@@ -12,9 +12,13 @@
     "apiKey": "YOUR_YOUTUBE_API_KEY"
   },
   "customization": {
-    "botName": "Nocní hráči Music bot",
-    "embedFooter": "Nocní hráči Music bot",
-    "color": 23877
+    "embedTitle": "Example Music Bot",
+    "embedColor": "#0099ff",
+    "embedThumbnail": "",
+    "embedImage": "",
+    "embedFooterText": "Example Music Bot",
+    "embedFooterIcon": "",
+    "adminRoleId": ""
   },
   "texts": {
     "bot": {
@@ -102,14 +106,6 @@
       "noPermissionConnect": "Nemám oprávnění připojit se do hlasového kanálu.",
       "noPermissionSpeak": "Nemám oprávnění mluvit v hlasovém kanálu.",
       "unknownError": "Došlo k neočekávané chybě."
-    },
-    "leaderboard": {
-      "usersTitle": "🏆 Top 20 uživatelů - Přidané písničky",
-      "usersEmpty": "Zatím nikdo nepřidal žádnou písničku.",
-      "usersItemSuffix": "písniček",
-      "songsTitle": "🎵 Top 20 nejpřehrávanějších písniček",
-      "songsEmpty": "Zatím nebyla přehrána žádná písnička.",
-      "songsItemSuffix": "x"
     },
     "leaderboard": {
       "usersTitle": "🏆 Top 20 uživatelů - Přidané písničky",
