@@ -1,4 +1,4 @@
-# Discord Music Bot
+# Discord Music Bot – Shareable Version
 
 A modern Discord music bot with YouTube integration and an embed-based control panel with buttons. This version is cleaned of server-specific settings and prepared for easy sharing and running.
 
